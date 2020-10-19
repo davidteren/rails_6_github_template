@@ -5,8 +5,8 @@ SimpleCov.start do
   add_group 'Interactors', 'app/interactors'
 end
 
-require 'codecov'
-SimpleCov.formatter = SimpleCov::Formatter::Codecov
+# require 'codecov'
+# SimpleCov.formatter = SimpleCov::Formatter::Codecov
 
 require 'pry'
 
@@ -75,7 +75,7 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   # config.include Devise::Test::ControllerHelpers, type: :controller
-  config.include Devise::Test::IntegrationHelpers, type: :request
+  # config.include Devise::Test::IntegrationHelpers, type: :request
 
   config.include FactoryBot::Syntax::Methods
 

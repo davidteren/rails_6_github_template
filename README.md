@@ -13,6 +13,10 @@ Some generators are disabled by default. See [config/application.rb](config/appl
 2. In the ***Create a new repository from rails_6_template*** form add the name of your new applications repo and select ***Create repository from template***
 3. Clone your new repo and cd into the directory
 4. Run `bundle`
-5. Now you can run the following command to rename the app.
+5. Run `yarn install --check-files`
+6. Now you can run the following command to rename the app.
 
        rails g rename:into New-Name
+
+7. Start `bin/webpack-dev-server` & `rails s` or run `foreman start -f Procfile.dev` to start everything including live-reload for browser updates as you save changes to view files.
+8. Open one of the following in your browser [http://app_name.lvh.me:3000](http://app_name.lvh.me:3000/) or [http://localhost:3000](http://localhost:3000/)
