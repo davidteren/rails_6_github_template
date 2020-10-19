@@ -16,7 +16,6 @@ env:
 #  CODECOV_TOKEN: 1d7508cc-2730-4aee-9478-80f5e6254364
 
 jobs:
-
   linters:
     name: Linters & Tests
     runs-on: ubuntu-latest
