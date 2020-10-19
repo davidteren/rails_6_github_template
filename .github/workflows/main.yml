@@ -1,6 +1,11 @@
 name: build
 
-on: [push]
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
+
 env:
   APP_NAME: rails_6_template
   NODE_VERSION: 14.2.0
