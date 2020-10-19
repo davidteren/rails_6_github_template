@@ -29,20 +29,6 @@ module Rails6Template
     config.generators.helper false
 
     # RSpec
-    # config.generators.test_framework :rspec
-    # config.generators.fixture_replacement :factory_bot
-    # config.generators.factory_bot dir: 'spec/factories'
-    # config.generators.controller_specs false
-    # config.generators.request_specs true
-    # config.generators.helper_specs false
-    # config.generators.feature_specs true
-    # config.generators.mailer_specs true
-    # config.generators.model_specs true
-    # config.generators.observer_specs false
-    # config.generators.routing_specs false
-    # config.generators.view_specs false
-    # config.generators.system_specs true
-
     config.generators do |g|
       g.test_framework :rspec
       g.fixture_replacement :factory_bot
