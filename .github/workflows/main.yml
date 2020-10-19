@@ -65,15 +65,15 @@ jobs:
           yarn install --pure-lockfile
 
       - name: Setup Ruby
-          uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
 
       - name: Ruby gem cache
-          uses: actions/cache@v1
-          with:
-            path: vendor/bundle
-            key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-            restore-keys: |
-              ${{ runner.os }}-gems-
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
 
       - name: Install gems
         run: |
@@ -82,11 +82,11 @@ jobs:
           bundle install --jobs 4 --retry 3
 
       - name: Setup test database
-          env:
-            RAILS_ENV: test
-            DATABASE_URL: postgres://${{ env.POSTGRES_USER }}:@localhost:5432/${{ env.POSTGRES_DB }}
-          run: |
-            bin/rails db:drop db:create
+        env:
+          RAILS_ENV: test
+          DATABASE_URL: postgres://${{ env.POSTGRES_USER }}:@localhost:5432/${{ env.POSTGRES_DB }}
+        run: |
+          bin/rails db:drop db:create
 
       - name: Run linters
         run: |
@@ -98,6 +98,6 @@ jobs:
           bundle exec bin/brakeman -q -w2
 
       - name: Run tests
-          env:
-            RAILS_ENV: test
-          run: bundle exec rspec --format doc
+        env:
+          RAILS_ENV: test
+        run: bundle exec rspec --format doc
