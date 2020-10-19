@@ -31,7 +31,7 @@ group :development, :test do
   gem 'foreman'
   gem 'brakeman'
   gem 'bundler-audit'
-  gem 'codecov'
+  # gem 'codecov'
   gem 'timecop'
   gem 'dotenv-rails'
 end

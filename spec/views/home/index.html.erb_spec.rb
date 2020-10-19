@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "home/index.html.erb", type: :view do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'should render' do
+    expect(controller.controller_path).to eq('home')
+  end
 end
