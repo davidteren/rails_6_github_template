@@ -15,7 +15,7 @@ gem 'turbolinks', '~> 5'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'factory_bot_rails', '5.1.1'
@@ -45,8 +45,8 @@ group :development do
   gem 'guard'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'rename', git: 'https://github.com/feelx/rename.git' 
+  gem 'rename', git: 'https://github.com/feelx/rename.git'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

@@ -10,6 +10,7 @@ Bundler.require(*Rails.groups)
 
 module Rails6Template
   class Application < Rails::Application
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
@@ -44,5 +45,6 @@ module Rails6Template
       g.view_specs true
       g.system_specs true
     end
+
   end
 end
