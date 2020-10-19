@@ -1,0 +1,148 @@
+name: build
+
+on: [pull_request]
+env:
+  APP_NAME: rails_6_template
+  NODE_VERSION: 14.2.0
+  RUBY_VERSION: 2.71
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: ""
+  POSTGRES_DB: rails_6_template_test
+#  CODECOV_TOKEN: 1d7508cc-2730-4aee-9478-80f5e6254364
+
+jobs:
+
+  linters:
+    name: Linters
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+
+      - name: Ruby gem cache
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+
+      - name: Install gems
+        run: |
+          sudo apt-get install libtag1-dev
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Find yarn cache location
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: JS package cache
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install packages
+        run: |
+          yarn install --pure-lockfile
+
+      - name: Run linters
+        run: |
+          bundle exec bin/rubocop --parallel
+
+      - name: Run security checks
+        run: |
+          bundle exec bin/bundler-audit --update
+          bundle exec bin/brakeman -q -w2
+
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:11@sha256:85d79cba2d4942dad7c99f84ec389a5b9cc84fb07a3dcd3aff0fb06948cdc03b
+        ports: ['5432:5432']
+        env:
+          POSTGRES_USER: ${{ env.POSTGRES_USER }}
+          POSTGRES_DB: ${{ env.POSTGRES_DB }}
+          POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
+
+      redis:
+        image: redis
+        ports:
+          - 6379:6379
+        options: --entrypoint redis-server
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Find yarn cache location
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: JS package cache
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install packages
+        run: |
+          yarn install --pure-lockfile
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+
+      - name: Ruby gem cache
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+
+      - name: Install gems
+        run: |
+          sudo apt-get install libtag1-dev
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+
+      - name: Setup test database
+        env:
+          RAILS_ENV: test
+          DATABASE_URL: postgres://${{ env.POSTGRES_USER }}:@localhost:5432/${{ env.POSTGRES_DB }}
+        run: |
+          bin/rails db:drop db:create
+
+      - name: Rubocop Lint Checks
+        run: |
+          bundle exec bin/rubocop --parallel
+
+      - name: Run security checks
+        run: |
+          bundle exec bin/bundler-audit --update
+          bundle exec bin/brakeman -q -w2
+
+      - name: Run tests
+        env:
+          RAILS_ENV: test
+        run: bundle exec rspec --format doc
