@@ -6,3 +6,13 @@ Template repositories let users generate new repositories with the same director
 Some generators are disabled by default. See [config/application.rb](config/application.rb) for details.
 
  The jbuilder gem is also commented out by default.
+
+### Usage
+
+1. Create a new repo by [clicking here](https://github.com/davidteren/rails_6_template/generate)
+2. In the ***Create a new repository from rails_6_templat*** form add the name of your new app and select *** Create repository from template***
+3. Clone your new repo and cd into the directory
+4. Run `bundle`
+5. Now you can run the following command to rename the app.
+
+       rails g rename:into New-Name

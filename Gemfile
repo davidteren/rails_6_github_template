@@ -45,6 +45,7 @@ group :development do
   gem 'guard'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'rename', git: 'https://github.com/feelx/rename.git' 
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/feelx/rename.git
+  revision: e27293630ceea2621493d6e0441bb2e4e3bcd185
+  specs:
+    rename (1.0.7)
+      activesupport
+      rails (>= 3.0.0)
+      thor (>= 0.19.1)
+
+GIT
   remote: https://github.com/stympy/faker.git
   revision: c4cc7648a24f62673dce71388acd8e0a966bd0d0
   branch: master
@@ -138,8 +147,6 @@ GEM
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.4)
-    jbuilder (2.10.1)
-      activesupport (>= 5.0.0)
     json (2.3.1)
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -326,13 +333,13 @@ DEPENDENCIES
   foreman
   guard
   guard-livereload
-  jbuilder (~> 2.7)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
   pry-byebug
   pry-rails
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.4)
+  rename!
   rspec-rails
   rubocop (= 0.79.0)
   rubocop-performance
