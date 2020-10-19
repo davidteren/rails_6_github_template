@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'boot'
 
 require 'rails/all'
@@ -22,8 +24,25 @@ module Rails6Template
     # the framework and any gems in your application.
 
     # Don't generate system test files.
-    config.generators.system_tests = nil
-    config.generators.assets = false
-    config.generators.helper = false
+    # config.generators.system_tests = nil
+    config.generators.assets false
+    config.generators.helper false
+
+    # RSpec
+    config.generators do |g|
+      g.test_framework :rspec
+      g.fixture_replacement :factory_bot
+      g.factory_bot dir: 'spec/factories'
+      g.controller_specs false
+      g.request_specs true
+      g.helper_specs true
+      g.feature_specs true
+      g.mailer_specs true
+      g.model_specs true
+      g.observer_specs false
+      g.routing_specs true
+      g.view_specs true
+      g.system_specs true
+    end
   end
 end
