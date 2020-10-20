@@ -10,9 +10,6 @@ env:
   APP_NAME: rails_6_template
   NODE_VERSION: 14.2.0
   RUBY_VERSION: 2.71
-  POSTGRES_USER: postgres
-  POSTGRES_PASSWORD: ""
-  POSTGRES_DB: rails_6_template_test
 #  CODECOV_TOKEN: 1d7508cc-2730-4aee-9478-80f5e6254364
 
 jobs:
@@ -22,23 +19,19 @@ jobs:
 
     services:
       postgres:
-        image: postgres:11@sha256:85d79cba2d4942dad7c99f84ec389a5b9cc84fb07a3dcd3aff0fb06948cdc03b
-        ports: [ '5432:5432' ]
+        image: postgres:12
+        ports: [ "5432:5432" ]
         env:
-          POSTGRES_USER: ${{ env.POSTGRES_USER }}
-          POSTGRES_DB: ${{ env.POSTGRES_DB }}
-#          POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
-          POSTGRES_HOST_AUTH_METHOD: trust
-
-      redis:
-        image: redis
-        ports:
-          - 6379:6379
-        options: --entrypoint redis-server
+          POSTGRES_PASSWORD: password
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2 
+        uses: actions/checkout@v2
 
       - name: Setup Node
         uses: actions/setup-node@v1
@@ -63,9 +56,15 @@ jobs:
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.1
+
+      - name: Install PostgreSQL 12 client
+          run: |
+            sudo apt-get -yqq install libpq-dev
 
       - name: Ruby gem cache
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: vendor/bundle
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
@@ -78,12 +77,6 @@ jobs:
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
 
-      - name: Setup test database
-        env:
-          RAILS_ENV: test
-          DATABASE_URL: postgres://${{ env.POSTGRES_USER }}:@localhost:5432/${{ env.POSTGRES_DB }}
-        run: bundle exec rails db:setup --trace
-                                      
       - name: Run linters
         run: |
           bundle exec bin/rubocop --parallel
@@ -93,7 +86,19 @@ jobs:
           bundle exec bin/bundler-audit --update
           bundle exec bin/brakeman -q -w2
 
-      - name: Run tests
-        env:
-          RAILS_ENV: test
-        run: bundle exec rspec --format doc
+      - name: Run Tests
+          env:
+            PG_DATABASE: postgres
+            PG_HOST: localhost
+            PG_USER: postgres
+            PG_PASSWORD: password
+            RAILS_ENV: test
+            WITH_COVERAGE: true
+            DISABLE_SPRING: 1
+          run: |
+            bin/rails db:setup
+            bundle exec rake test
+#      - name: Run tests
+#        env:
+#          RAILS_ENV: test
+#        run: bundle exec rspec --format doc
