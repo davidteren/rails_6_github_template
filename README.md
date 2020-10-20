@@ -1,4 +1,5 @@
-## Rails 6 GitHub Starter Template
+# Rails 6 GitHub Starter Template
+Easy way to get a new Rails 6 project up and running. Includes Rails 6, PostgreSQL, StimulusJS, TailwindCSS, RSpec, pre-configured GitHub Action to check the code quailty, gem security and run tests.
 
 ![ruby-on-rails-github-template.jpeg](public/ruby-on-rails-github-template.jpeg)
 
@@ -48,6 +49,8 @@ GitHub Template repositories let users generate new repositories with the same d
 
 [rename](https://github.com/morshedalam/rename) - To rename rails applications.
 
+---
+
 ### Usage
 
 1. Create a new repo by [clicking here](https://github.com/davidteren/rails_6_template/generate)
@@ -61,7 +64,6 @@ GitHub Template repositories let users generate new repositories with the same d
 
 7. Start `bin/webpack-dev-server` & `rails s` or run `foreman start -f Procfile.dev` to start everything including live-reload for browser updates as you save changes to view files.
 8. Open one of the following in your browser [http://app_name.lvh.me:3000](http://app_name.lvh.me:3000/) or [http://localhost:3000](http://localhost:3000/)
-
 
 ###  Generator Configuration
 Some generators are disabled by default. See [config/application.rb](config/application.rb) for details.
