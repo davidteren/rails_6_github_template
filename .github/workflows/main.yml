@@ -7,10 +7,6 @@ on:
     branches: [ develop ]
 
 env:
-  APP_NAME: rails_6_template
-  NODE_VERSION: 14.2.0
-  RUBY_VERSION: 2.71
-#  CODECOV_TOKEN: 1d7508cc-2730-4aee-9478-80f5e6254364
 
 jobs:
   linters:
@@ -36,7 +32,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: 14.2.0
 
       - name: Find yarn cache location
         id: yarn-cache
@@ -97,8 +93,4 @@ jobs:
           DISABLE_SPRING: 1
         run: |
           bin/rails db:setup
-          bundle exec rake test
-#      - name: Run tests
-#        env:
-#          RAILS_ENV: test
-#        run: bundle exec rspec --format doc
+          bundle exec rspec --format doc
