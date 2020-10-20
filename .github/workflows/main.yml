@@ -87,17 +87,17 @@ jobs:
           bundle exec bin/brakeman -q -w2
 
       - name: Run Tests
-          env:
-            PG_DATABASE: postgres
-            PG_HOST: localhost
-            PG_USER: postgres
-            PG_PASSWORD: password
-            RAILS_ENV: test
-            WITH_COVERAGE: true
-            DISABLE_SPRING: 1
-          run: |
-            bin/rails db:setup
-            bundle exec rake test
+        env:
+          PG_DATABASE: postgres
+          PG_HOST: localhost
+          PG_USER: postgres
+          PG_PASSWORD: password
+          RAILS_ENV: test
+          WITH_COVERAGE: true
+          DISABLE_SPRING: 1
+        run: |
+          bin/rails db:setup
+          bundle exec rake test
 #      - name: Run tests
 #        env:
 #          RAILS_ENV: test
