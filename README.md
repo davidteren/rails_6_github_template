@@ -4,6 +4,8 @@ Template repositories let users generate new repositories with the same director
 
 ###  What's Included
 
+#### Application
+
 [Ruby on Rails 6.0.3.4](https://github.com/rails/rails) - A web-application framework that includes everything needed to create database-backed web applications according to the Model-View-Controller (MVC)
 
 [Ruby 2.7.1](https://www.ruby-lang.org/en/news/2020/03/31/ruby-2-7-1-released/) - A dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is natural to read and easy to write.
@@ -13,6 +15,36 @@ Template repositories let users generate new repositories with the same director
 [Stimulus JS](https://stimulusjs.org/) - A modest JavaScript framework for the HTML you already have.
 
 [tailwindcss](https://tailwindcss.com/) - A utility-first CSS framework for rapidly building custom designs.
+
+####  Testing
+[RSpec](https://github.com/rspec/rspec-rails) - Behaviour Driven Development for Ruby.
+
+[factory_bot](https://github.com/thoughtbot/factory_bot) - A library for setting up Ruby objects as test data.
+
+[faker](https://github.com/faker-ruby/faker) - A library for generating fake data such as names, addresses, phone numbers and more.
+
+[simplecov](https://github.com/simplecov-ruby/simplecov) - Code coverage for Ruby with a powerful configuration library and automatic merging of coverage across test suites.
+
+#### Development
+[pry-rails](https://github.com/rweng/pry-rails) - A powerful alternative to the standard IRB shell for Ruby. It features syntax highlighting, a flexible plugin architecture, runtime invocation and source and documentation browsing.
+
+[pry-byebug](https://github.com/deivid-rodriguez/pry-byebug) - Step-by-step debugging and stack navigation in Pry.
+
+[rubocop](https://github.com/rubocop-hq/rubocop) - RuboCop is a Ruby static code analyzer (a.k.a. linter ) and code formatter. Out of the box it will enforce many of the guidelines outlined in the community.
+
+[brakeman](https://github.com/presidentbeef/brakeman) - A static analysis security vulnerability scanner for Ruby on Rails applications
+
+[bundler-audit](https://github.com/rubysec/bundler-audit) - Checks for vulnerable versions of gems & insecure gem sources.
+
+[foreman](https://github.com/ddollar/foreman) - Manage Procfile-based applications.
+
+[dotenv](https://github.com/bkeepers/dotenv) - A Ruby gem to load environment variables from `.env`.
+
+[guard-livereload](https://github.com/guard/guard-livereload) -   Guard::LiveReload automatically reload your browser when 'view' files are modified.
+
+[better_errors](https://github.com/BetterErrors/better_errors) - Better Errors replaces the standard Rails error page with a much better and more useful error page. It is also usable outside of Rails in any Rack app as Rack middleware.
+
+[rename](https://github.com/morshedalam/rename) - To rename rails applications.
 
 ### Usage
 

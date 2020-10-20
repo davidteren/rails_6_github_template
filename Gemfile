@@ -31,8 +31,6 @@ group :development, :test do
   gem 'foreman'
   gem 'brakeman'
   gem 'bundler-audit'
-  # gem 'codecov'
-  gem 'timecop'
   gem 'dotenv-rails'
 end
 
@@ -41,10 +39,8 @@ group :development do
   gem 'listen', '~> 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'guard-livereload'
-  gem 'guard'
+  gem 'guard-livereload', '~> 2.5', require: false
   gem 'better_errors'
-  gem 'binding_of_caller'
   gem 'rename', git: 'https://github.com/feelx/rename.git'
 end
 
