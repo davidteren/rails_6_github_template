@@ -1,6 +1,6 @@
 ## Rails 6 GitHub Starter Template
 
- ![ruby-on-rails-github-template.png](https://cleanshot-cloud-fra.s3.eu-central-1.amazonaws.com/media/5059/36A1YYqZPJtb1fRd7xR5O2pbOwFAIlJN5LH3827V.jpeg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA5MF2VVMNIDEEYCNL%2F20201020%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20201020T202726Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Signature=9060252167f71a5542e1980014fe4484e7adc5d86c6a3d9e3e74c6225b506d89)
+![ruby-on-rails-github-template.jpeg](public/ruby-on-rails-github-template.jpeg)
 
 GitHub Template repositories let users generate new repositories with the same directory structure and files. [Learn more.](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template)
 
