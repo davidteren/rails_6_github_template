@@ -6,8 +6,6 @@ on:
   pull_request:
     branches: [ develop ]
 
-env:
-
 jobs:
   linters:
     name: Linters & Tests
