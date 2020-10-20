@@ -1,0 +1,219 @@
+require:
+  - rubocop-rails
+  - rubocop-performance
+
+AllCops:
+  TargetRubyVersion: 2.5
+  DisabledByDefault: true
+  Exclude:
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'bin/**/*'
+    - 'db/schema.rb'
+
+Rails:
+  Enabled: true
+
+Rails/OutputSafety:
+  Enabled: false
+
+# ==== Layout
+
+Layout/AccessModifierIndentation:
+  Enabled: true
+
+Layout/ArrayAlignment:
+  Enabled: true
+
+Layout/HashAlignment:
+  Enabled: true
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: table
+
+Layout/CaseIndentation:
+  Enabled: true
+
+Layout/CommentIndentation:
+  Enabled: true
+
+Layout/ElseAlignment:
+  Enabled: true
+
+Layout/EmptyLineAfterMagicComment:
+  Enabled: true
+
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: true
+
+Layout/EmptyLinesAroundClassBody:
+  Enabled: true
+  EnforcedStyle: empty_lines_except_namespace
+
+Layout/EmptyLinesAroundMethodBody:
+  Enabled: true
+
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: true
+  EnforcedStyle: empty_lines_except_namespace
+
+Layout/EndAlignment:
+  Enabled: true
+  EnforcedStyleAlignWith: variable
+  AutoCorrect: true
+
+Layout/FirstArgumentIndentation:
+  Enabled: true
+
+Layout/IndentationConsistency:
+  Enabled: true
+  EnforcedStyle: indented_internal_methods
+
+Layout/IndentationWidth:
+  Enabled: true
+
+Layout/LeadingCommentSpace:
+  Enabled: true
+
+Layout/SpaceAfterColon:
+  Enabled: true
+
+Layout/SpaceAfterComma:
+  Enabled: true
+
+Layout/SpaceAroundKeyword:
+  Enabled: true
+
+Layout/SpaceAroundOperators:
+  Enabled: true
+
+Layout/SpaceBeforeBlockBraces:
+  Enabled: true
+
+Layout/SpaceBeforeComma:
+  Enabled: true
+
+Layout/SpaceBeforeFirstArg:
+  Enabled: true
+
+Layout/SpaceInsideBlockBraces:
+  Enabled: true
+  EnforcedStyleForEmptyBraces: space
+
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: true
+
+Layout/SpaceInsideParens:
+  Enabled: true
+
+Layout/Tab:
+  Enabled: true
+
+Layout/TrailingEmptyLines:
+  Enabled: true
+
+Layout/TrailingWhitespace:
+  Enabled: true
+
+# ==== Lint
+
+Lint/RequireParentheses:
+  Enabled: true
+
+Lint/UriEscapeUnescape:
+  Enabled: true
+
+Layout/LineLength:
+  Max: 140
+
+# ==== Metrics
+
+Metrics/ParameterLists:
+  Max: 5
+
+# ==== Performance
+
+Performance:
+  Exclude:
+    - '**/spec/**/*'
+
+Performance/EndWith:
+  Enabled: true
+
+Performance/FlatMap:
+  Enabled: true
+
+Performance/RedundantMerge:
+  Enabled: true
+
+Performance/RegexpMatch:
+  Enabled: true
+
+Performance/StartWith:
+  Enabled: true
+
+Performance/UnfreezeString:
+  Enabled: true
+
+# ==== Style
+
+Style/AndOr:
+  Enabled: true
+
+Style/ColonMethodCall:
+  Enabled: true
+
+Style/DefWithParentheses:
+  Enabled: true
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+  EnforcedStyle: always
+
+Style/HashSyntax:
+  Enabled: true
+  EnforcedStyle: ruby19_no_mixed_keys
+
+Style/MethodDefParentheses:
+  Enabled: true
+
+Style/ParenthesesAroundCondition:
+  Enabled: true
+
+Style/PreferredHashMethods:
+  Enabled: true
+
+Style/RedundantBegin:
+  Enabled: true
+
+Style/RedundantConditional:
+  Enabled: true
+
+Style/RedundantException:
+  Enabled: true
+
+Style/RedundantFreeze:
+  Enabled: true
+
+Style/RedundantReturn:
+  Enabled: true
+  AllowMultipleReturnValues: true
+
+Style/Semicolon:
+  Enabled: true
+  AllowAsExpressionSeparator: true
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: single_quotes
+
+Style/SymbolArray:
+  Enabled: true
+
+Style/TrivialAccessors:
+  Enabled: true
+
+Style/RedundantPercentQ:
+  Enabled: true
+
+Style/WordArray:
+  Enabled: true
