@@ -65,11 +65,3 @@ Template repositories let users generate new repositories with the same director
 Some generators are disabled by default. See [config/application.rb](config/application.rb) for details.
 
  The jbuilder gem is also commented out by default.
-
-
-
-
-
-
-
-
