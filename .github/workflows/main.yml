@@ -60,8 +60,8 @@ jobs:
           ruby-version: 2.7.1
 
       - name: Install PostgreSQL 12 client
-          run: |
-            sudo apt-get -yqq install libpq-dev
+        run: |
+          sudo apt-get -yqq install libpq-dev
 
       - name: Ruby gem cache
         uses: actions/cache@v2
