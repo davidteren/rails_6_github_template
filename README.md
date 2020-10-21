@@ -69,3 +69,17 @@ GitHub Template repositories let users generate new repositories with the same d
 Some generators are disabled by default. See [config/application.rb](config/application.rb) for details.
 
  The jbuilder gem is also commented out by default.
+
+---
+### To DO
+
+- Verify the renaming is thorough
+- Set up the GemFile to more easily diferentiate between standard and template gems
+- Consider automating added gem listing in readme & docs
+- Renaming should remove all traces of template and add new app readme
+
+---
+
+###  Contribute
+
+PR's welcome. 🤓
