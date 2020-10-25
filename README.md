@@ -1,5 +1,5 @@
 # Rails 6 GitHub Starter Template
-Easy way to get a new Rails 6 project up and running. Includes Rails 6, PostgreSQL, StimulusJS, TailwindCSS, RSpec and includes a pre-configured GitHub Actions Workflow to that checks code quailty, validates gems and runs tests.
+Easy way to get a new Rails 6 project up and running. Includes Rails 6, PostgreSQL, StimulusJS, TailwindCSS, RSpec and includes a pre-configured GitHub Actions Workflow that checks code quailty, validates gems and runs tests.
 
 ![ruby-on-rails-github-template-features.png](public/ruby-on-rails-github-template-features.png)
 
